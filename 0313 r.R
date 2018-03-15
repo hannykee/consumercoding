@@ -123,3 +123,47 @@ while(i<10){
   print(paste(dan,"x", i, " = ",times))
   i <- i+1
 }
+
+
+dan <- 9 
+       #i in 범위설정
+for ( i in 2:9) {
+  times <- i * dan
+  print(paste(dan, "X", i, "=", times))
+}
+
+
+str <- c("a","b","c")
+#     i 범위에 문자
+for ( i in str) {
+  print(i)
+}
+
+##paste() 한 줄에 붙여넣기##
+
+##print()
+
+
+
+#사용자 정의 함수 만들기
+#함수명 <- function(전달인자factor1,전달인자2) {
+# 함수 작성을 위한 코드
+# return (반환값)
+# }
+
+
+#팩토리얼 구하는 함수
+#함수명
+myfacto <- function(x){
+  fact <- 1
+  i <- x
+  while(i > 1) {
+    fact <- fact * i 
+    i <- i-1
+  }
+  return(fact) #반드시 return값 삽입#
+  }
+myfacto(5)
+myfacto(10)
+
+
