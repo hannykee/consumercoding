@@ -167,3 +167,49 @@ test1<- data.frame(id  = c(1,2,3,4,5),midterm = c(60,80,70,90,85))
 test2<- data.frame(id = c(2,3,4,5,6), final = c(70,83,65,95,80))
 total <- left_join(test1,test2, by="id")
 total
+
+
+install.packages(dplyr)
+library(dplyr)
+test1 <- data.frame(id=c(1,2,3,4,5), midterm=c(60,80,70,90,85))
+test2 <- data.frame(id=c(2,3,4,5,6),final=c(70,83,65,95,80))
+total <- left_join(test1,test2,by="id")
+total
+
+total <- right_join(test1,test2,by="id")
+total
+
+total <- inner_join(test1,test2,by="id")
+total
+
+total <-full_join(test1,test2,by="id")
+total
+
+
+#세로로 데이터 합치기 - 변수 명이 동일해야 함 (rename(바꿀이름=원래이름))
+group_a <- data.frame(id=c(1,2,3,4,5), test=c(60,80,70,90,85))
+group_b <- data.frame(id=c(6,7,8,9,10),test=c(70,83,65,95,80))
+
+group_all <- bind_rows(group_a, group_b)
+group_all
+
+
+group_a <- data.frame(id=c(1,2,3,4,5), test=c(60,80,70,90,85))
+group_b <- data.frame(id=c(6,7,8,9,10),temp=c(70,83,65,95,80))
+
+group_all <- bind_rows(group_a, group_b)
+group_all
+
+group_b = rename(group_b,test=temp)#바꿀이름=원래이름
+group_all <- bind_rows(group_a,group_b)
+group_all
+
+
+
+
+#정량데이터 => 정성적인 서비스디자인(프로토타입 구상까지)
+#미디어 사용행태 조사 패널데이터
+
+특정 주제에서 No라고 답한 계층(Filter)을 공략한다.=> Yes로 대답하도록
+설문지
+#결측치제거 na.rm=TRUE
